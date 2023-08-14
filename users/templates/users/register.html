@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form class="m-5" method="POST">
+        {% csrf_token %} 
+        {{ form|crispy }}
+        <button class="btn btn-info mx-auto d-block">Register</button>
+    </form>
+
+{% endblock content %}
