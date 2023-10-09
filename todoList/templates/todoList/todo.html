@@ -2,36 +2,53 @@
 
 <h1 class="text-center text-primary">To Dos</h1>
 {% for todo in todos %}
+<div class="row justify-content-center">
+  <article
+    class="m-4 media content-section text-center"
+    style="width: 50vw; border-radius: 1.5rem"
+  >
+    <div class="media-body">
+      <div class="article-metadata">
+        <a href="{% url 'user_todo_list' todo.author.username %}"
+          >{{ todo.author }}</a
+        >
+        <h3>{{ todo.title }}</h3>
+        <p class="article-content">{{ todo.content }}</p>
+        <small class="text-muted">{{ todo.date|date:"F d, Y" }}</small>
+      </div>
 
-    <article class="m-4 media content-section">
-        <div class="media-body">
-            <div class="article-metadata">
-                <a href="{% url 'user_todo_list' todo.author.username %}">{{ todo.author }}</a>
-                <h3>{{ todo.title }}</h3>
-                <p class="article-content">{{ todo.content }}</p>
-                <small class="text-muted">{{ todo.date|date:"F d, Y" }}</small>
-            </div>
-
-           
-            <button class="btn btn-warning" type="submit" name="done" id="done" onClick="updateBtn(this)">should done</button>
-            <a href="{% url 'update_todo' todo.id %}" class="btn btn-secondary">Update</a>
-            <a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger">delete</a>
-
-        </div>
-    </article>
-
+      {% if user.is_authenticated and user == todo.author %}
+      <button
+        class="btn btn-warning"
+        type="submit"
+        name="done"
+        id="done"
+        onClick="updateBtn(this)"
+      >
+        should done
+      </button>
+      
+      <a href="{% url 'update_todo' todo.id %}" class="btn btn-secondary"
+        >Update</a
+      >
+      <a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger"
+        >delete</a
+      >
+      {% endif %}
+    </div>
+  </article>
+</div>
 
 {% endfor %}
-    <script>
-        function updateBtn(button){
-            if(button.innerHTML == "should done"){
-                button.innerHTML = "completed"
-            }
-            else{
-                button.innerHTML = "should done"
-            }
-            button.classList.toggle("btn-warning")
-            button.classList.toggle("btn-success")
-        } 
-    </script>
+<script>
+  function updateBtn(button) {
+    if (button.innerHTML == "should done") {
+      button.innerHTML = "completed";
+    } else {
+      button.innerHTML = "should done";
+    }
+    button.classList.toggle("btn-warning");
+    button.classList.toggle("btn-success");
+  }
+</script>
 {% endblock content %}
