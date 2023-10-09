@@ -4,9 +4,9 @@
 <html lang="en">
   <head>
     {% if title %}
-    <title>To Do {{ title }}</title>
+    <title>ToDo {{ title }}</title>
     {% else %}
-    <title>To Do</title>
+    <title>ToDo</title>
     {% endif %}
     <meta charset="utf-8" />
     <meta
@@ -28,7 +28,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <a class="navbar-brand" href="{% url 'todo_list' %}">To Do</a>
+      <a class="navbar-brand" href="{% url 'todo_list' %}">ToDo</a>
 
       <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
@@ -52,7 +52,9 @@
     <div class="alert alert-{{ message.tags }}">{{ message }}</div>
     {% endfor %} {% endif %}
 
-    <div style="background-color: skyBlue; min-height: 91.2vh; overflow-x: hidden">
+    <div
+      style="background-color: skyBlue; min-height: 91.2vh; overflow-x: hidden"
+    >
       {% block content %} {% endblock content %}
     </div>
 
