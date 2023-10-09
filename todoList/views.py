@@ -11,10 +11,9 @@ def todo_list(request):
     return render(request, 'todoList/todo.html', {'todos': todos})
 
 
-@login_required
 def user_todo_list(request, username):
     user = get_object_or_404(User, username=username)
-    todos = ToDo.objects.filter(author_id=request.user.id).order_by('-date')
+    todos = ToDo.objects.filter(author_id=user.id).order_by('-date')
     return render(request, 'todoList/todo.html', {'todos': todos, 'user': user})
 
 
