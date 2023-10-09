@@ -29,3 +29,13 @@ This is a simple Todo list application built using Django. With this application
 
    ```shell
    git clone https://github.com/Kourosh-Hassanzadeh/ToDo.git
+
+
+
+### Usage
+Sign up for an account on the application.
+Log in with your credentials.
+Create new Todos by clicking the "Create Todo" button and filling out the form.
+View your Todos on the main page.
+Click on the "Done," "Delete," or "Update" buttons to perform respective actions on your Todos.
+To view Todos of other users, click on their usernames.
