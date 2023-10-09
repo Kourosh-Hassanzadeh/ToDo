@@ -1,7 +1,5 @@
 # Todo List with Django
 
-![Todo List Screenshot](/path/to/screenshot.png)
-
 ## Overview
 
 This is a simple Todo list application built using Django. With this application, you can create, update, and delete your Todos after signing up and logging in. The "Done," "Delete," and "Update" buttons will be displayed after you log in.
